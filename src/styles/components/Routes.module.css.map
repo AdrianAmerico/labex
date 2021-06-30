@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "Routes.module.scss",
+        "../Color.scss"
+    ],
+    "names": [],
+    "file": "Routes.module.css"
+}

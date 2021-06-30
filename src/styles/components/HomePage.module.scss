@@ -1,0 +1,33 @@
+.homePageContainer {
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    display: grid;
+    flex-direction: column;
+    img {
+        width: 50%;
+    }
+}
+
+.cardHomePage {
+    width: 350px;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    align-items: center;
+    text-align: center;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+ .cardHomePage>h1 {
+    color: #f3f4f5;
+ }
+
+ .buttonContainer {
+     display: flex;
+     justify-content: space-around;
+     width: 100%;
+ }

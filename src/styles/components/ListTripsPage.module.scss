@@ -1,0 +1,71 @@
+.TripsContainer {
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 70%;
+    align-items: center;
+    border-radius: 15px;
+    color: white;
+
+    >h1 {
+        text-align: center;
+        margin-top: 5px;
+        text-transform: uppercase;
+    }
+}
+
+.travelContainer {
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 95%;
+    border-radius: 10px;
+    margin: 10px auto;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+
+    img {
+        width: 80px;
+        height: 80px;
+        margin: 0 10px;
+    }
+
+    :hover {
+        opacity: 0.5;
+        cursor: pointer;
+    }
+}
+
+.leftSide {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.rightSide {
+    display: flex;
+}
+
+
+.ItemsSection {
+    overflow: auto;
+}
+
+.goBackButton {
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row-reverse;
+    width: 60%;
+    margin: 5px auto;
+    margin-bottom: 10px;
+}
+.loading {
+    height: 100%;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
