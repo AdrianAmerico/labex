@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { BrowserContainer, BrowserAlign } from '../styles/components/browserstyles/BrowserContainer';
 import HomePage from './homepage/HomePage';
@@ -11,7 +11,6 @@ import TripDetailsPage from './admin/adminhome/tripdetailspage/TripDetailsPage';
 import CreateTripPage from './admin/adminhome/createtrippage/CreateTripPage';
 import StarfieldAnimation from 'react-starfield-animation';
 import { BACKGROUND_URL } from '../pages/coordinator';
-
 
 function Routes() {
     return (
@@ -29,6 +28,7 @@ function Routes() {
                     <Switch>
 
                         {/* Rota Client */}
+
                         <Route exact path="/">
                             <HomePage />
                         </Route>
@@ -37,7 +37,7 @@ function Routes() {
                             <ListTripsPage />
                         </Route>
 
-                        <Route exact path="/trips/application">
+                        <Route exact path="/trips/application/:planet">
                             <ApplicationFormPage />
                         </Route>
 
@@ -46,12 +46,15 @@ function Routes() {
                         <Route exact path="/admin/trips/list">
                             <TripDetailsPage />
                         </Route>
+
                         <Route exact path="/login">
                             <LoginPage />
                         </Route>
+
                         <Route exact path="/admin/trips/list/:id">
                             <TripsListPage />
                         </Route>
+
                         <Route exact path="/admin/trip/list/create">
                             <CreateTripPage />
                         </Route>

@@ -27,7 +27,8 @@ export const sendPostTrips = (id, body) => {
         .then(() => {
             alert("Formulário enviado com sucesso. Boa sorte!")
 
-        }).catch(() => {
+        }).catch((err) => {
+            console.log(err.response)
             alert("Por favor preencha todos os campos e tente novamente.")
         })
 }
@@ -98,7 +99,7 @@ export const createTrip = (body) => {
             alert("Viagem criada com sucesso !")
         })
         .catch((err) => {
-            alert(err.response.data.message)
+            alert(err.response.data)
         })
 
 }

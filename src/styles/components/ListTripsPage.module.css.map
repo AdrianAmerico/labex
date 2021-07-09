@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,eAAe,CAAC;EACf,gBAAgB,EAAE,OAAkB;CACpC",
-    "sources": [
-        "ListTripsPage.module.scss"
-    ],
-    "names": [],
-    "file": "ListTripsPage.module.css"
-}
