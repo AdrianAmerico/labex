@@ -6,7 +6,7 @@ import ListTripsPage from './client/listTripsPage/ListTripsPage';
 import ApplicationFormPage from './client/applicationForm/ApplicationFormPage';
 import ErrorPage from '../pages/error/ErrorPage'
 import TripsListPage from './admin/triplistpage/TripListPage';
-import LoginPage from './admin/loginpage/LoginPage';
+import LoginPage from './admin/LoginPage/LoginPage';
 import TripDetailsPage from './admin/adminhome/tripdetailspage/TripDetailsPage';
 import CreateTripPage from './admin/adminhome/createtrippage/CreateTripPage';
 import StarfieldAnimation from 'react-starfield-animation';
