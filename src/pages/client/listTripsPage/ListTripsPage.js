@@ -6,26 +6,28 @@ import styles from '../../../styles/components/ListTripsPage.module.scss';
 import { goToLastPage } from '../../coordinator';
 import PhotoIcon from '../../../components/PhotoIcon/PhotoIcon';
 import Button from '@material-ui/core/Button';
-import GlobalStateContext from '../../../global/GlobalStateContext';
+
 function ListTripsPage() {
     document.title = "LabeX | Lista de Viagens";
     const history = useHistory();
     const listaDeItem = useGetTrips([], '/trips')
-    const teste = (planet) => {
+
+    const choosePlanetToTravel = (planet) => {
         localStorage.setItem("planetId", planet[1])
         history.push(`/trips/application/${planet[0]}`)
     }
+    console.log(listaDeItem)
 
     return (
         <div className={styles.TripsContainer}>
             <h1>Inscreva-se !</h1>
 
             <section className={styles.ItemsSection}>
-                {listaDeItem.length > 0 ? (
+                {listaDeItem && listaDeItem.length ? (
                     listaDeItem.map((trip => {
 
                         return (
-                            <div className={styles.travelContainer} key={trip.id} onClick={() => teste([trip.planet, trip.id])}>
+                            <div className={styles.travelContainer} key={trip.id} onClick={() => choosePlanetToTravel([trip.planet, trip.id])}>
 
                                 <div className={styles.leftSide}>
                                     <PhotoIcon planet={(trip.planet)} />
@@ -46,7 +48,6 @@ function ListTripsPage() {
                 ) : <div className={styles.loading}><CircularProgress color="primary" size="10rem" /></div>
                 }
                 <div className={styles.goBackButton}>
-                    <Button variant="outlined" color="primary" style={{ color: "#f2f4f5" }} size="large" onClick={teste}>Inscrever</Button>
                     <Button variant="outlined" color="primary" style={{ color: "#f2f4f5" }} size="large" onClick={() => goToLastPage(history)}>Voltar</Button>
                 </div>
 
