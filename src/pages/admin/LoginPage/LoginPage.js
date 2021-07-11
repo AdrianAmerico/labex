@@ -24,39 +24,24 @@ function LoginPage() {
         <div className={styles.loginContainer}>
 
             <form onSubmit={doLogin} className={styles.formLogin}>
-                <h2 style={{ color: "black" }}>Administração</h2>
+                <h2>Área Administrativa</h2>
                 <br />
                 <TextInput
-                    label="email"
-                    placeholder="E-mail"
+                    label="E-mail"
                     type="email"
                     name="email"
                     value={bodyData.email}
-                    onChange={handleBodyData} />
+                    onChange={handleBodyData}
+                />
                 <br />
-
                 <TextInput
                     label="Senha"
-                    placeholder="Digite sua senha"
                     type="password"
                     name="password"
                     value={bodyData.email}
                     onChange={handleBodyData}
                     pattern={"^.{3,}"}
                 />
-
-                {/* <TextField
-                    label="Senha"
-                    variant="outlined" u
-                    placeholder="senha"
-                    name="password"
-                    color="secondary"
-                    value={bodyData.password}
-                    type={"password"}
-                    onChange={handleBodyData}
-                    pattern={"^.{3,}"}
-                    required
-                /> */}
 
                 <div className={styles.formBottons}>
                     <DefaultButton type="submit">Enviar</DefaultButton>
