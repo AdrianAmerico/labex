@@ -5,9 +5,10 @@ import { useHistory, useParams } from 'react-router-dom';
 import { sendPostTrips } from '../../../requests/Request';
 import useApplicationForm from '../../../hooks/useApplicationForm';
 import styles from '../../../styles/components/ApplicationFormPage.module.scss';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import { TextField } from '@material-ui/core';
 import PhotoIcon from '../../../components/PhotoIcon/PhotoIcon';
+import TextInput from '../../../components/TextInput/TextInput';
+import DefaultButton from '../../../components/Button/Button';
 
 function ApplicationFormPage() {
     document.title = "LabeX | Cadastro de Viagem";
@@ -53,17 +54,9 @@ function ApplicationFormPage() {
                         <div className={styles.formAlign}>
                             <div className={styles.formLeftSide}>
 
-                                <TextField
-                                    id="outlined-basic"
+                                <TextInput
                                     label="Nome"
-                                    variant="outlined"
-                                    size="small"
-                                    style={{
-                                        backgroundColor: "rgba(0, 0, 0, 0,2)",
-
-                                        margin: "5px"
-                                    }}
-
+                                    placeholder="Digite seu nome"
                                     name={"name"}
                                     value={body.name}
                                     onChange={onChange}
@@ -72,9 +65,9 @@ function ApplicationFormPage() {
                                     required
                                 />
 
-                                <TextField
-                                    id="outlined-basic"
+                                <TextInput
                                     label="Profissão"
+                                    placeholder="Digite sua profissão"
                                     variant="outlined"
                                     size="small"
                                     style={{
@@ -91,11 +84,16 @@ function ApplicationFormPage() {
                                 />
 
                                 <TextField
-                                    id="standard-select-currency"
                                     select
+                                    id="standard-select-currency"
                                     label="Selecione o seu pais"
                                     onChange={onChange}
                                     name={"country"}
+                                    InputLabelProps={{
+                                        style: { color: '#fff' },
+                                    }}
+                                    inputprops={{ style: { color: "#fff" } }}
+                                    style={{ color: "white", margin: "5px 0" }}
                                     value={body.country}
                                     required>
                                     <option></option>
@@ -105,12 +103,17 @@ function ApplicationFormPage() {
                                 </TextField>
 
                                 <TextField
-                                    placeholder="Texto de candidatura"
+                                    label="Texto de candidatura"
+                                    placeholder="Fale mais sobre você"
                                     onChange={onChange}
                                     name={"applicationText"}
                                     multiline
                                     rows={4}
                                     value={body.applicationText}
+                                    InputLabelProps={{
+                                        style: { color: '#fff' },
+                                    }}
+                                    style={{ margin: "5px 0" }}
                                     required
                                     pattern={"^.{30,}$"}
                                     title={"O texto deve ter no mínimo 30 caracteres"}
@@ -118,7 +121,7 @@ function ApplicationFormPage() {
                             </div>
 
                             <div className={styles.formRightSide}>
-                                <TextField
+                                <TextInput
                                     id="outlined-basic"
                                     label="Idade"
                                     variant="outlined"
@@ -139,12 +142,11 @@ function ApplicationFormPage() {
                                 <div className={styles.planetPhoto}>
                                     <PhotoIcon planet={params.planet} />
                                 </div>
-
                             </div>
                         </div>
                         <div className={styles.formBottons}>
-                            <Button variant="outlined" color="primary" style={{ color: "black" }} size="large" type={"submit"}>ENVIAR</Button>
-                            <Button variant="outlined" style={{ color: "black" }} size="large" onClick={() => goToLastPage(history)}>Voltar</Button>
+                            <DefaultButton type={"submit"}>ENVIAR</DefaultButton>
+                            <DefaultButton function={() => goToLastPage(history)}>Voltar</DefaultButton>
                         </div>
 
                     </form>

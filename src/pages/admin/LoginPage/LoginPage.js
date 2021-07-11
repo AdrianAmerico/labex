@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom';
 import useLoginHook from '../../../hooks/useLoginHook';
 import { useLogin } from '../../../requests/Request';
 import styles from '../../../styles/components/LoginPage.module.scss';
-import TextField from '@material-ui/core/TextField';
 import DefaultButton from '../../../components/Button/Button';
 import TextInput from '../../../components/TextInput/TextInput';
 
