@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { BASE_URL, goToAdminPage } from '../pages/coordinator';
+import { BASE_URL } from '../pages/coordinator';
 import { useHistory } from 'react-router-dom';
 
 export const useGetTrips = (initialState, url) => {
