@@ -1,25 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import useInputForm from '../../../hooks/useInputForm';
 import axios from 'axios';
 import { countryAPI, goToLastPage } from '../../coordinator';
-import { useHistory } from 'react-router-dom';
-import { useGetTrips, sendPostTrips } from '../../../requests/Request';
+import { useHistory, useParams } from 'react-router-dom';
+import { sendPostTrips } from '../../../requests/Request';
 import useApplicationForm from '../../../hooks/useApplicationForm';
 import styles from '../../../styles/components/ApplicationFormPage.module.scss';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import Mars from '../../../assets/mars.png';
-import Jupiter from '../../../assets/jupiter.png';
-import Netuno from '../../../assets/netuno.png';
-import Plutao from '../../../assets/plutao.png';
+import PhotoIcon from '../../../components/PhotoIcon/PhotoIcon';
 
 function ApplicationFormPage() {
-
     document.title = "LabeX | Cadastro de Viagem";
-    const [countryId, setCountryId] = useInputForm("");
     const [country, changeCountry] = useState([]);
     const history = useHistory();
-    const listaDeItem = useGetTrips([], '/trips');
+    const params = useParams()
     const { body, onChange, clear } = useApplicationForm({
         name: "",
         age: "",
@@ -28,31 +22,14 @@ function ApplicationFormPage() {
         country: ""
     })
 
-
-    const photoIcon = (planet) => {
-        console.log(planet)
-        switch (planet) {
-            case 'S974yllfKBYvtmRLJGWc':
-                return <img src={Mars} alt="" />
-            case 'NWDbu9pDp3mb2v6cttJP':
-                return <img src={Netuno} alt="" />
-            case 'fLYHtlmXb1wO8nwQFmwd':
-                return <img src={Jupiter} alt="" />
-            case 'GQaf4g7Fb1YsY37gUzDM':
-                return <img src={Plutao} alt="" />
-            default:
-                return "";
-
-        }
-    }
-
     useEffect(() => {
         getAllCountry();
     }, [])
 
     const onClickSend = (e) => {
+        const id = localStorage.getItem("planetId")
         e.preventDefault()
-        sendPostTrips(countryId, body)
+        sendPostTrips(id, body)
         clear();
     }
 
@@ -73,28 +50,6 @@ function ApplicationFormPage() {
                 <div>
                     <form onSubmit={onClickSend} className={styles.formItems}>
 
-                        <TextField
-                            value={countryId}
-                            onChange={setCountryId}
-                            id="standard-select-currency"
-                            select
-                            label="Selecione um planeta"
-                            required
-                            style={{
-                                width: "80%",
-                                margin: "0 auto"
-                            }}
-                        >
-                            <option disabled defaultValue=""></option>
-                            {listaDeItem && listaDeItem.length > 0 ? (
-                                listaDeItem.map((trip => {
-                                    const { id, planet } = trip;
-                                    return (<option key={id} value={id}>{planet}</option>)
-                                }))
-                            ) : <option>Carregando...</option>
-                            }
-                        </TextField>
-
                         <div className={styles.formAlign}>
                             <div className={styles.formLeftSide}>
 
@@ -105,10 +60,10 @@ function ApplicationFormPage() {
                                     size="small"
                                     style={{
                                         backgroundColor: "rgba(0, 0, 0, 0,2)",
-                                        color: "white",
+
                                         margin: "5px"
                                     }}
-                                    color="white"
+
                                     name={"name"}
                                     value={body.name}
                                     onChange={onChange}
@@ -117,7 +72,6 @@ function ApplicationFormPage() {
                                     required
                                 />
 
-
                                 <TextField
                                     id="outlined-basic"
                                     label="Profissão"
@@ -125,7 +79,7 @@ function ApplicationFormPage() {
                                     size="small"
                                     style={{
                                         backgroundColor: "rgba(0, 0, 0, 0,2)",
-                                        color: "white",
+
                                         margin: "5px"
                                     }}
                                     name={"profession"}
@@ -135,7 +89,6 @@ function ApplicationFormPage() {
                                     pattern={"^.{10,}$"}
                                     title={"A profissão deve ter no mínimo 10 caracteres"}
                                 />
-
 
                                 <TextField
                                     id="standard-select-currency"
@@ -150,7 +103,6 @@ function ApplicationFormPage() {
                                         return <option key={pais.name} value={pais.name}>{pais.name}</option>
                                     }) : <p>Carregando</p>}
                                 </TextField>
-
 
                                 <TextField
                                     placeholder="Texto de candidatura"
@@ -173,7 +125,7 @@ function ApplicationFormPage() {
                                     size="small"
                                     style={{
                                         backgroundColor: "rgba(0, 0, 0, 0,2)",
-                                        color: "white",
+
                                         margin: "5px"
                                     }}
                                     placeholder={"Idade"}
@@ -185,7 +137,7 @@ function ApplicationFormPage() {
                                     min={18}
                                 />
                                 <div className={styles.planetPhoto}>
-                                    {photoIcon(countryId)}
+                                    <PhotoIcon planet={params.planet} />
                                 </div>
 
                             </div>

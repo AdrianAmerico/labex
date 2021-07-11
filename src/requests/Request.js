@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { BASE_URL, goToAdminPage } from '../pages/coordinator';
+import { BASE_URL } from '../pages/coordinator';
 import { useHistory } from 'react-router-dom';
 
 export const useGetTrips = (initialState, url) => {
@@ -27,7 +27,8 @@ export const sendPostTrips = (id, body) => {
         .then(() => {
             alert("Formulário enviado com sucesso. Boa sorte!")
 
-        }).catch(() => {
+        }).catch((err) => {
+            console.log(err.response)
             alert("Por favor preencha todos os campos e tente novamente.")
         })
 }
@@ -98,7 +99,7 @@ export const createTrip = (body) => {
             alert("Viagem criada com sucesso !")
         })
         .catch((err) => {
-            alert(err.response.data.message)
+            alert(err.response.data)
         })
 
 }
