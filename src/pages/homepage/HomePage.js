@@ -1,7 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router';
 import { goToListTrips, goToAdminPage } from '../coordinator';
-import Button from '@material-ui/core/Button';
 import style from '../../styles/components/HomePage.module.scss';
 import SpaceShip from '../../assets/spaceShip.png';
 import DefaultButton from '../../components/Button/Button';

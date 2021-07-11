@@ -6,6 +6,7 @@ import styles from '../../../styles/components/ListTripsPage.module.scss';
 import { goToLastPage } from '../../coordinator';
 import PhotoIcon from '../../../components/PhotoIcon/PhotoIcon';
 import Button from '@material-ui/core/Button';
+import DefaultButton from '../../../components/Button/Button';
 
 function ListTripsPage() {
     document.title = "LabeX | Lista de Viagens";
@@ -48,7 +49,7 @@ function ListTripsPage() {
                 ) : <div className={styles.loading}><CircularProgress color="primary" size="10rem" /></div>
                 }
                 <div className={styles.goBackButton}>
-                    <Button variant="outlined" color="primary" style={{ color: "#f2f4f5" }} size="large" onClick={() => goToLastPage(history)}>Voltar</Button>
+                <DefaultButton function={() => goToLastPage(history)}>Voltar</DefaultButton>     
                 </div>
 
             </section>
