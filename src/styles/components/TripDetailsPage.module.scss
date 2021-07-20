@@ -1,0 +1,61 @@
+@import "../Color.scss";
+
+#tripContainer {
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 500px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  border-radius: 15px;
+
+  .tripMapContainer {
+    display: flex;
+    padding: 10px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  .infoItem {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .trip__LeftSide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      margin: 0 5px;
+    }
+  }
+
+  .buttonsContainer {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+
+    > button {
+      padding: 5px;
+      margin: 0 5px;
+    }
+  }
+  .loading {
+    height: 100%;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    display: flex;
+  }
+}

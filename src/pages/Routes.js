@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { BrowserContainer, BrowserAlign } from '../styles/components/browserstyles/BrowserContainer';
 import HomePage from './homepage/HomePage';
