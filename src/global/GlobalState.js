@@ -1,13 +1,13 @@
 
 import React, { useState } from 'react';
-import globalContext from './GlobalStateContext';
+import GlobalContext from './GlobalStateContext';
 
 function GlobalState(props) {
     const [planetKey, setPlanetKey] = useState("")
     return (
-        <globalContext.Provider value={{ planetKey, setPlanetKey }}>
+        <GlobalContext.Provider value={{ planetKey, setPlanetKey }}>
             {props.children}
-        </globalContext.Provider>
+        </GlobalContext.Provider>
     )
 }
 export default GlobalState;

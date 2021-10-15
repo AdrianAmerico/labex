@@ -39,6 +39,16 @@
     flex-direction: column;
     flex: 1;
   }
+  .formControl {
+    margin: 8px;
+    color: white;
+    label {
+      color: white;
+    }
+    & > div {
+      color: white;
+    }
+  }
 
   .formAlign {
     display: flex;

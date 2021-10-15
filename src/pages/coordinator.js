@@ -1,4 +1,4 @@
-export const countryAPI = "https://restcountries.eu/rest/v2/all";
+export const countryAPI = "http://api.first.org/data/v1/countries";
 export const BACKGROUND_URL = "https://transitive-bullshit.github.io/react-starfield-animation/static/media/stars.492b41ed.jpg";
 export const BASE_URL = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/adrian-americo-paiva`;
 
